@@ -1,50 +1,17 @@
 from fastapi import FastAPI
-from pydantic import BaseModel
 
-# builds a application object - defines behaviour
+from routes.users_routes import router as users_router
+from routes.moodlogs_routes import router as moodlogs_router
+from routes.moods_routes import router as moods_router
+from routes.reflections_routes import router as reflections_router
+
 app = FastAPI()
 
-#memory
-numbers = []
-items = []
-next_id = 1
-
-#defines what a request body must look like 
-class NumberInput(BaseModel):
-    number: int # expect json , must contain a field called number and the type myust be int
-
-class ItemCreate(BaseModel):
-    name: str
-    price: float
-
-
-@app.get("/hello") # when get request comes to /hello run function below Routes
+@app.get("/hello")
 def say_hello():
     return {"message": "hello"}
 
-@app.post("/add-number")
-def add_number(input: NumberInput): # gets request body and validate it using class 
-    numbers.append(input.number)
-    return {
-        "numbers": numbers,
-        "count": len(numbers)
-    }
-
-
-@app.get("/items")
-def get_items():
-    return {"items": items.copy()}
-
-
-@app.post("/items", status_code=201)
-def create_item(payload: ItemCreate):
-    global next_id # need to attach global because this is 
-
-    new_item = {
-        "id": next_id,
-        "name": payload.name,
-        "price": payload.price,
-    }
-    next_id += 1
-    items.append(new_item)
-    return new_item
+app.include_router(users_router)
+app.include_router(moodlogs_router)
+app.include_router(moods_router)
+app.include_router(reflections_router)
