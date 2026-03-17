@@ -1,11 +1,19 @@
+import logging
+
 import psycopg2
 from database.db import cursor, conn
 
+logger = logging.getLogger("uvicorn.error")
+
 
 def get_users():
-    cursor.execute("SELECT * FROM users")
-    users = cursor.fetchall()
-    return users
+    try:
+        cursor.execute("SELECT * FROM users")
+        users = cursor.fetchall()
+        return users
+    except psycopg2.Error:
+        logger.exception("Database error while fetching users.")
+        raise
 
 
 def create_user(first_name, last_name, email):
@@ -25,6 +33,7 @@ def create_user(first_name, last_name, email):
 
         return user
 
-    except psycopg2.errors.UniqueViolation:
+    except psycopg2.Error as e:
         conn.rollback()
-        return {"error": "Email already exists"}
+        logger.error("Unable to create user with email=%s: %s", email, e, exc_info=True)
+        raise
