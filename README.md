@@ -1,6 +1,19 @@
-Just learning for now ...
+# Mood Tracking API
+
+A containerized FastAPI backend with a PostgreSQL database, deployed on AWS EC2 using Docker Compose.
+
+## Tech Stack
+
+- FastAPI
+- PostgreSQL
+- Docker
+- AWS EC2
+
+## Notion Road Map 
 
 Learning Roadmap: https://catnip-single-f71.notion.site/Mood-Tracker-App-Learning-Road-Map-31305a6c00f1800ea3baf797fd9b697f?source=copy_link
+
+## Database Schema
 
 ```mermaid
 erDiagram
