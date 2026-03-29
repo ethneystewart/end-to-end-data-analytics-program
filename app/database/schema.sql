@@ -20,7 +20,7 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 --
--- Name: mood_type; Type: TYPE; Schema: public; Owner: ethneystewart
+-- Name: mood_type; Type: TYPE; Schema: public; Owner: postgres
 --
 
 CREATE TYPE public.mood_type AS ENUM (
@@ -37,14 +37,14 @@ CREATE TYPE public.mood_type AS ENUM (
 );
 
 
-ALTER TYPE public.mood_type OWNER TO ethneystewart;
+ALTER TYPE public.mood_type OWNER TO postgres;
 
 SET default_tablespace = '';
 
 SET default_table_access_method = heap;
 
 --
--- Name: mood; Type: TABLE; Schema: public; Owner: ethneystewart
+-- Name: mood; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.mood (
@@ -55,10 +55,10 @@ CREATE TABLE public.mood (
 );
 
 
-ALTER TABLE public.mood OWNER TO ethneystewart;
+ALTER TABLE public.mood OWNER TO postgres;
 
 --
--- Name: mood_id_seq; Type: SEQUENCE; Schema: public; Owner: ethneystewart
+-- Name: mood_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.mood_id_seq
@@ -70,17 +70,17 @@ CREATE SEQUENCE public.mood_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.mood_id_seq OWNER TO ethneystewart;
+ALTER SEQUENCE public.mood_id_seq OWNER TO postgres;
 
 --
--- Name: mood_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ethneystewart
+-- Name: mood_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.mood_id_seq OWNED BY public.mood.id;
 
 
 --
--- Name: moodlog; Type: TABLE; Schema: public; Owner: ethneystewart
+-- Name: moodlog; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.moodlog (
@@ -94,10 +94,10 @@ CREATE TABLE public.moodlog (
 );
 
 
-ALTER TABLE public.moodlog OWNER TO ethneystewart;
+ALTER TABLE public.moodlog OWNER TO postgres;
 
 --
--- Name: moodlog_id_seq; Type: SEQUENCE; Schema: public; Owner: ethneystewart
+-- Name: moodlog_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.moodlog_id_seq
@@ -109,17 +109,17 @@ CREATE SEQUENCE public.moodlog_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.moodlog_id_seq OWNER TO ethneystewart;
+ALTER SEQUENCE public.moodlog_id_seq OWNER TO postgres;
 
 --
--- Name: moodlog_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ethneystewart
+-- Name: moodlog_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.moodlog_id_seq OWNED BY public.moodlog.id;
 
 
 --
--- Name: reflection; Type: TABLE; Schema: public; Owner: ethneystewart
+-- Name: reflection; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.reflection (
@@ -129,10 +129,10 @@ CREATE TABLE public.reflection (
 );
 
 
-ALTER TABLE public.reflection OWNER TO ethneystewart;
+ALTER TABLE public.reflection OWNER TO postgres;
 
 --
--- Name: reflection_id_seq; Type: SEQUENCE; Schema: public; Owner: ethneystewart
+-- Name: reflection_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.reflection_id_seq
@@ -144,17 +144,17 @@ CREATE SEQUENCE public.reflection_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.reflection_id_seq OWNER TO ethneystewart;
+ALTER SEQUENCE public.reflection_id_seq OWNER TO postgres;
 
 --
--- Name: reflection_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ethneystewart
+-- Name: reflection_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.reflection_id_seq OWNED BY public.reflection.id;
 
 
 --
--- Name: users; Type: TABLE; Schema: public; Owner: ethneystewart
+-- Name: users; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.users (
@@ -165,10 +165,10 @@ CREATE TABLE public.users (
 );
 
 
-ALTER TABLE public.users OWNER TO ethneystewart;
+ALTER TABLE public.users OWNER TO postgres;
 
 --
--- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: ethneystewart
+-- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.users_id_seq
@@ -180,45 +180,45 @@ CREATE SEQUENCE public.users_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.users_id_seq OWNER TO ethneystewart;
+ALTER SEQUENCE public.users_id_seq OWNER TO postgres;
 
 --
--- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ethneystewart
+-- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.users_id_seq OWNED BY public.users.id;
 
 
 --
--- Name: mood id; Type: DEFAULT; Schema: public; Owner: ethneystewart
+-- Name: mood id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.mood ALTER COLUMN id SET DEFAULT nextval('public.mood_id_seq'::regclass);
 
 
 --
--- Name: moodlog id; Type: DEFAULT; Schema: public; Owner: ethneystewart
+-- Name: moodlog id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.moodlog ALTER COLUMN id SET DEFAULT nextval('public.moodlog_id_seq'::regclass);
 
 
 --
--- Name: reflection id; Type: DEFAULT; Schema: public; Owner: ethneystewart
+-- Name: reflection id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.reflection ALTER COLUMN id SET DEFAULT nextval('public.reflection_id_seq'::regclass);
 
 
 --
--- Name: users id; Type: DEFAULT; Schema: public; Owner: ethneystewart
+-- Name: users id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_id_seq'::regclass);
 
 
 --
--- Name: mood mood_pkey; Type: CONSTRAINT; Schema: public; Owner: ethneystewart
+-- Name: mood mood_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.mood
@@ -226,7 +226,7 @@ ALTER TABLE ONLY public.mood
 
 
 --
--- Name: moodlog moodlog_pkey; Type: CONSTRAINT; Schema: public; Owner: ethneystewart
+-- Name: moodlog moodlog_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.moodlog
@@ -234,7 +234,7 @@ ALTER TABLE ONLY public.moodlog
 
 
 --
--- Name: reflection reflection_pkey; Type: CONSTRAINT; Schema: public; Owner: ethneystewart
+-- Name: reflection reflection_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.reflection
@@ -242,7 +242,7 @@ ALTER TABLE ONLY public.reflection
 
 
 --
--- Name: users users_email_key; Type: CONSTRAINT; Schema: public; Owner: ethneystewart
+-- Name: users users_email_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.users
@@ -250,7 +250,7 @@ ALTER TABLE ONLY public.users
 
 
 --
--- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: ethneystewart
+-- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.users
@@ -258,7 +258,7 @@ ALTER TABLE ONLY public.users
 
 
 --
--- Name: mood mood_moodlog_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: ethneystewart
+-- Name: mood mood_moodlog_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.mood
@@ -266,7 +266,7 @@ ALTER TABLE ONLY public.mood
 
 
 --
--- Name: moodlog moodlog_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: ethneystewart
+-- Name: moodlog moodlog_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.moodlog
@@ -274,7 +274,7 @@ ALTER TABLE ONLY public.moodlog
 
 
 --
--- Name: reflection reflection_moodlog_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: ethneystewart
+-- Name: reflection reflection_moodlog_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.reflection
