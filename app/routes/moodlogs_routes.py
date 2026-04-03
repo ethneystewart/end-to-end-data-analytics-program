@@ -2,8 +2,8 @@ import logging
 
 import psycopg2
 from fastapi import APIRouter, HTTPException
-from models.request_models import MoodLogCreate
-from services.moodlog_service import create_moodlog, get_moodlogs
+from app.models.request_models import MoodLogCreate
+from app.services.moodlog_service import create_moodlog, get_moodlogs
 
 router = APIRouter(prefix="/moodlogs", tags=["MoodLogs"])
 logger = logging.getLogger("uvicorn.error")

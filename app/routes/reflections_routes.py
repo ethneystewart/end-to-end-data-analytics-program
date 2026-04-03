@@ -2,8 +2,8 @@ import logging
 
 import psycopg2
 from fastapi import APIRouter, HTTPException
-from models.request_models import ReflectionCreate
-from services.reflections_service import create_reflection, get_reflections
+from app.models.request_models import ReflectionCreate
+from app.services.reflections_service import create_reflection, get_reflections
 
 router = APIRouter(prefix="/reflection", tags=["Reflections"])
 logger = logging.getLogger("uvicorn.error")

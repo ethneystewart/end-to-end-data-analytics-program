@@ -1,7 +1,7 @@
 import logging
 
 import psycopg2
-from database.db import cursor, conn
+from app.database.db import cursor, conn
 
 logger = logging.getLogger("uvicorn.error")
 

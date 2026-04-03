@@ -2,8 +2,8 @@ import logging
 
 import psycopg2
 from fastapi import APIRouter, HTTPException
-from models.request_models import UserCreate
-from services.user_service import create_user, get_users
+from app.models.request_models import UserCreate
+from app.services.user_service import create_user, get_users
 
 router = APIRouter(prefix="/users", tags=["Users"])
 logger = logging.getLogger("uvicorn.error")
